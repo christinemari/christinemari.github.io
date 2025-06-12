@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christine Mari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header with large name */
+        .header-name {
+            text-align: center;
+            padding: 60px 0 40px 0;
+        }
+
+        .header-name h1 {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: #666;
+        }
+
+        .main-nav a.active {
+            color: #999;
+        }
+
+        /* Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 120px;
+            padding: 0 20px;
+        }
+
+        .work-item {
+            text-align: center;
+        }
+
+        .work-item-image {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item-image:hover {
+            transform: scale(1.02);
+        }
+
+        .work-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-item h3 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0 60px 0;
+            border-top: 1px solid #eee;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 1200px) {
+            .work-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .main-nav {
+                gap: 40px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .main-nav {
+                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-name h1 {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+            
+            .work-item-image {
+                height: 250px;
+            }
+        }
+
+        /* Page switching */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* About page styles */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-content a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .about-content a:hover {
+            color: #666;
+        }
+
+        .contact-info {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .collaborators {
+            margin-top: 40px;
+        }
+
+        .collaborators h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .collaborators-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            list-style: none;
+        }
+
+        .collaborators-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header-name">
+            <h1>Christine Mari</h1>
+            
+            <nav class="main-nav">
+                <a href="#" onclick="showPage('about')">about</a>
+                <a href="#" onclick="showPage('events')">events</a>
+                <a href="#" onclick="showPage('work')" class="active">work</a>
+                <a href="#" onclick="showPage('media')">media</a>
+                <a href="#" onclick="showPage('contact')">contact</a>
+                <a href="#" onclick="showPage('store')">store</a>
+            </nav>
+        </header>
+
+        <!-- Work Page (default) -->
+        <div id="work" class="page active">
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="/images/halfway-sm.png" alt="">
+                    </div>
+                    <h3>zines</h3>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="/images/kokoro-cover-sm.png" alt="">
+                    </div>
+                    <h3>Eric's Sister</h3>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="/images/dott-sm.png" alt="">
+                    </div>
+                    <h3>comics</h3>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="about-content">
+                <div class="contact-info">
+                    <p>Instagram: <a href="https://instagram.com/christinemaricomics" target="_blank">christinemaricomics</a></p>
+                    <p><a href="#" onclick="showPage('contact')">Contact me here</a> regarding:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>comics or illustrations</li>
+                        <li>comic consulting/manuscript review</li>
+                        <li>talks or workshops</li>
+                        <li>or just to say hi!</li>
+                    </ul>
+                </div>
+
+                <p>I am a cartoonist and cultural worker in Hong Kong. I self published my first graphic novel, <a href="#">Eric's Sister</a>, which was <a href="#">shortlisted</a> for the 2024 Cartoonist Studio Prize in long-form comics.</p>
+
+                <p>I tell stories about quiet moments, friendship, and the rhythms of daily life. My work has appeared in The New Yorker online, Astra Magazine, The Economist, Catapult, Awry Comics, Oprah Daily, The Margins, The Offing, Popula and elsewhere. In 2021, I was <a href="#">shortlisted</a> for the Cartoonist Studio Prize in Webcomics.</p>
+
+                <p>I've lectured, participated in discussions or held workshops with Hong Kong Polytechnic University, The New School, Temple University Japan, Hong Kong Baptist University, University of Hong Kong, Vermont College of Fine Arts, University of Southern California, School of Visual Arts, Hackney Comic and Zine Fair, Tai Kwun Contemporary, M+ Museum and the Hong Kong Literary Festival.</p>
+
+                <p>From 2017-2019, I worked at Asia Society Hong Kong Center, where I co-curated <a href="#">Hon Chi-fun: A Story of Light</a> and was the assistant curator of <a href="#">Love Long: Robert Indiana and Asia</a>. Since 2020, I've worked at Empty Gallery, where I am currently director.</p>
+
+                <p><strong>Representation</strong><br>
+                <a href="mailto:cmao@sjga.com">Clare Mao, Sanford J. Greenburger Associates</a></p>
+
+                <div class="collaborators">
+                    <h3>Selected past collaborators</h3>
+                    <ul class="collaborators-list">
+                        <li>Art Agency Partners</li>
+                        <li>Asian American Writers' Workshop</li>
+                        <li>Asia Art Archive</li>
+                        <li>Baptist University, Hong Kong</li>
+                        <li>Frontline Fellowship (在場 · 獎學金)</li>
+                        <li>Glasgow Community Food Network</li>
+                        <li>Glasgow Zine Library</li>
+                        <li>Heinrich Böll Stiftung Hong Kong</li>
+                        <li>Hong Kong Tourism Board</li>
+                        <li>M+ Museum</li>
+                        <li>Oxford Internet Institute</li>
+                        <li>Restless Books</li>
+                        <li>South China Morning Post</li>
+                        <li>Vans</li>
+                        <li>Vera List Center for Art and Politics</li>
+                        <li>Wondermind</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Pages (placeholder content) -->
+        <div id="events" class="page">
+            <div class="about-content">
+                <h2 style="margin-bottom: 30px;">Events</h2>
+                <p>Upcoming events and appearances will be listed here.</p>
+            </div>
+        </div>
+
+        <div id="media" class="page">
+            <div class="about-content">
+                <h2 style="margin-bottom: 30px;">Media</h2>
+                <p>Press coverage and media appearances.</p>
+            </div>
+        </div>
+
+        <div id="contact" class="page">
+            <div class="about-content">
+                <h2 style="margin-bottom: 30px;">Contact</h2>
+                <p>Get in touch for collaborations, commissions, or just to say hello.</p>
+            </div>
+        </div>
+
+        <div id="store" class="page">
+            <div class="about-content">
+                <h2 style="margin-bottom: 30px;">Store</h2>
+                <p>Shop for zines, prints, and other creative works.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>All rights reserved © Kaitlin Chan 2025.</p>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageName);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
