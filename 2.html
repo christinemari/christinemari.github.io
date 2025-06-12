@@ -40,6 +40,16 @@
             margin-bottom: 40px;
         }
 
+        .header-name h1 a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .header-name h1 a:hover {
+            color: #666;
+        }
+
         /* Navigation */
         .main-nav {
             display: flex;
@@ -173,6 +183,54 @@
             display: block;
         }
 
+        /* Homepage hero section */
+        .homepage-hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            padding: 40px 0;
+        }
+
+        .hero-book {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-book img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-book img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .hero-book {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .homepage-hero {
+                min-height: 50vh;
+                padding: 20px 0;
+            }
+        }
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        
         /* About page styles */
         .about-content {
             max-width: 800px;
@@ -228,12 +286,12 @@
     <div class="container">
         <!-- Header -->
         <header class="header-name">
-            <h1>Christine Mari</h1>
+            <h1><a href="#" onclick="showPage('home')" class="active">Christine Mari</a></h1>
             
             <nav class="main-nav">
                 <a href="#" onclick="showPage('about')">about</a>
                 <a href="#" onclick="showPage('events')">events</a>
-                <a href="#" onclick="showPage('work')" class="active">books</a>
+                <a href="#" onclick="showPage('work')">books</a>
                 <a href="#" onclick="showPage('media')">media</a>
                 <a href="#" onclick="showPage('faq')">faq</a>
                 <a href="#" onclick="showPage('subscribe')">subscribe</a>                
@@ -242,6 +300,18 @@
                 <!--<a href="#" onclick="showPage('store')">store</a>-->
             </nav>
         </header>
+
+
+        <!-- Home Page (default) -->
+        <div id="home" class="page active">
+            <div class="homepage-hero">
+                <div class="hero-book">
+                    <img src="/images/halfway-md.png" alt="Halfway There">
+                </div>
+            </div>
+        </div>
+        
+        
 
         <!-- Work Page (default) -->
         <div id="work" class="page active">
