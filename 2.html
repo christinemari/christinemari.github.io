@@ -94,14 +94,16 @@
         }
 
         .work-item-image {
-            width: auto;
-            height: auto;
-            max-width: 100%;
+            width: 100%;
+            min-height: 200px;
             margin-bottom: 20px;
             border-radius: 4px;
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .work-item-image:hover {
@@ -109,8 +111,9 @@
         }
 
         .work-item-image img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
             object-fit: cover;
         }
 
@@ -328,7 +331,7 @@
                 
                 <div class="work-item">
                     <div class="work-item-image">
-                        <img src="/images/kokoro-cover-xs.png" alt="">
+                        <img src="/images/kokoro-xs.png" alt="">
                     </div>
                     <h3>Kokoro</h3>
                 </div>
