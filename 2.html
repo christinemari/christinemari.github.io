@@ -625,8 +625,64 @@
             }
             
             // Add active class to clicked nav link
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Hide mobile menu after navigation
+            hideMobileMenu();
+            
+            console.log('Switching to page:', pageName); // Debug log
         }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (navLinks.classList.contains('mobile-hidden')) {
+                // Show menu
+                navLinks.classList.remove('mobile-hidden');
+                menuToggle.classList.add('hidden');
+            } else {
+                // Hide menu
+                navLinks.classList.add('mobile-hidden');
+                menuToggle.classList.remove('hidden');
+            }
+        }
+
+        function hideMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            // Only hide if we're on mobile (check if menu toggle is visible)
+            if (window.innerWidth <= 768) {
+                navLinks.classList.add('mobile-hidden');
+                menuToggle.classList.remove('hidden');
+            }
+        }
+
+        // Initialize mobile menu state on page load
+        window.addEventListener('load', function() {
+            if (window.innerWidth <= 768) {
+                hideMobileMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (window.innerWidth > 768) {
+                // Desktop view - show nav links, hide menu toggle
+                navLinks.classList.remove('mobile-hidden');
+                menuToggle.classList.add('hidden');
+            } else {
+                // Mobile view - hide nav links, show menu toggle
+                navLinks.classList.add('mobile-hidden');
+                menuToggle.classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html>
