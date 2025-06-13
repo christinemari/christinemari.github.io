@@ -339,7 +339,48 @@
             border-radius: 8px;
         }
         
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            cursor: pointer;
+            text-decoration: underline;
+        }
 
+        .menu-toggle:hover {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                position: relative;
+            }
+
+            .nav-links {
+                display: flex;
+                justify-content: center;
+                gap: 60px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links.mobile-hidden {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-toggle.hidden {
+                display: none;
+            }
+        }
+
+        
     </style>
 </head>
 <body>
@@ -349,13 +390,15 @@
             <h1><a href="#" onclick="showPage('home')" class="active"><img src="/images/cmheading.png" alt="Christine Mari"></a></h1>
             
             <nav class="main-nav">
-                <a href="#" onclick="showPage('about')">about</a>
-                <!--<a href="#" onclick="showPage('events')">events</a>-->
-                <a href="#" onclick="showPage('work')">books</a>
-                <a href="#" onclick="showPage('media')">media</a>
-                <a href="https://www.patreon.com/c/christinemari/posts" target="_blank">patreon</a>
-                <a href="https://www.instagram.com/christinemaricomics/" target="_blank">instagram</a>
-                <!--<a href="#" onclick="showPage('store')">store</a>-->
+                <div class="nav-links" id="navLinks">
+                    <a href="#" onclick="showPage('about')">about</a>
+                    <!--<a href="#" onclick="showPage('events')">events</a>-->
+                    <a href="#" onclick="showPage('work')">books</a>
+                    <a href="#" onclick="showPage('media')">media</a>
+                    <a href="https://www.patreon.com/c/christinemari/posts" target="_blank">patreon</a>
+                    <a href="https://www.instagram.com/christinemaricomics/" target="_blank">instagram</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()">menu</button>
             </nav>
         </header>
 
