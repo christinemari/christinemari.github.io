@@ -398,27 +398,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-fieldset {
-  display: grid;
-  margin: 1.5rem 0;
-  row-gap: 1.5rem;
-}
-
-.fs-form:where(.fs-layout__2-column) fieldset {
-  column-gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
-  grid-column: 1 / -1;
-}
-
-.fs-fieldset-title {
-  color: var(--color-text-default);
-  font-family: var(--font-family-display);
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  margin-bottom: 1.5rem;
-  grid-column: 1 / -1;
-}
-
 .fs-field {
   display: flex;
   flex-direction: column;
@@ -451,7 +430,7 @@ fieldset {
 }
 
 .fs-button {
-  background-color: var(--color-primary);
+  background-color: blue;
   border-radius: 9999px;
   color: white;
   cursor: pointer;
@@ -473,29 +452,8 @@ fieldset {
   outline: 4px solid var(--color-highlight);
 }
 
-.fs-input,
-.fs-select {
-  appearance: none;
-  border-radius: 9999px;
-  border-width: 0;
-  box-shadow: var(--color-border-default) 0 0 0 1px inset;
-  color: var(--color-text-default);
-  font-size: 1rem;
-  height: 3rem;
-  line-height: 1.5rem;
-  outline: none;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
 
-.fs-input:focus-visible,
-.fs-select:focus-visible {
-  box-shadow: var(--color-border-active) 0 0 0 1px inset;
-}
-
-.fs-input::placeholder {
-  color: var(--color-text-muted);
-}        
+    
     </style>
 </head>
 <body>
