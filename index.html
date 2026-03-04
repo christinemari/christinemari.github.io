@@ -383,6 +383,12 @@
             color: #666;
         }
 
+        @media (max-width: 600px) {
+    .book-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
         @media (max-width: 768px) {
             .main-nav {
                 position: relative;
@@ -536,7 +542,7 @@
         <!-- Work Page (default) -->
         <div id="work" class="page">
            <div style="max-width: 800px; margin: 0 auto; padding: 20px 40px;">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; class="book-grid">
             <div style="text-align: center;">
                 <div style="margin-bottom: 16px;">
                     <a href="https://www.amazon.com/Halfway-There-Graphic-Memoir-Self-Discovery/dp/0316416657" target="_blank"><img src="/images/halfway-xs.png" alt="Halfway There" style="width: auto; max-width: 100%; height: 300px; object-fit: contain; display: block; margin: 0 auto; border-radius: 4px;"></a>
@@ -754,7 +760,7 @@
 
         <div id="store" class="page">
   <div style="max-width: 800px; margin: 0 auto; padding: 20px 40px;">
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; class="book-grid">
       
       <div style="text-align: center;">
         <div style="margin-bottom: 16px;">
